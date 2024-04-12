@@ -1,0 +1,64 @@
+@{
+  TempData.Keep();
+  string? currentPage = ViewContext.HttpContext.Request.Path;
+}
+
+<!-- Menu -->
+@* ! Do this simple *@
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+
+  @* ! Hide app brand if navbar-full *@
+  <div class='app-brand demo @((@ViewData["navbarFull"] != null && Convert.ToBoolean(@ViewData["navbarFull"])) ? "d-xl-none" : "")'>
+    <a asp-controller="Dashboards" asp-action="Index" class="app-brand-link">
+      <span class="app-brand-logo demo me-1">  @await Html.PartialAsync("../_Partials/_Macros")</span>
+      <span class="app-brand-text demo menu-text fw-semibold ms-2">Booking Ticket</span>
+    </a>
+
+    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+      <i class="mdi menu-toggle-icon d-xl-block align-middle mdi-20px"></i>
+    </a>
+  </div>
+
+  <div class="menu-inner-shadow"></div>
+
+  @* ! Full version menu-items *@
+  <ul class="menu-inner py-1">
+    <li class='menu-item@(currentPage == "/Apps/Email" ? " active" : "")'>
+      <a href="https://demos.themeselection.com/materio-aspnet-core-mvc-admin-template/html/vertical-menu-template/app-email.html" target="_blank" class="menu-link">
+         <i class="menu-icon tf-icons mdi mdi-clipboard-account-outline"></i>
+        <div>Tài khoản người dùng</div>
+      </a>
+    </li>
+    <li class='menu-item@(currentPage == "/Apps/Chat" ? " active" : "")'>
+      <a href="https://demos.themeselection.com/materio-aspnet-core-mvc-admin-template/html/vertical-menu-template/app-chat.html" target="_blank" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-car-outline"></i>
+        <div>Quản lý xe</div>
+      </a>
+    </li>
+    <li class='menu-item@(currentPage == "/Apps/Calendar" ? " active" : "")'>
+      <a href="https://demos.themeselection.com/materio-aspnet-core-mvc-admin-template/html/vertical-menu-template/app-calendar.html" target="_blank" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-road-variant"></i>
+        <div>Quản lý tuyến đường</div>
+      </a>
+    </li>
+    <li class='menu-item@(currentPage == "/Apps/Kanban" ? " active" : "")'>
+      <a href="https://demos.themeselection.com/materio-aspnet-core-mvc-admin-template/html/vertical-menu-template/app-kanban.html" target="_blank" class="menu-link">
+        <i class="menu-icon tf-icons mdi mdi-ticket-outline"></i>
+        <div>Quản lý vé</div>
+      </a>
+    </li>
+    <li class='menu-item@(currentPage == "/Apps/Kanban" ? " active" : "")'>
+        <a href="https://demos.themeselection.com/materio-aspnet-core-mvc-admin-template/html/vertical-menu-template/app-kanban.html" target="_blank" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-note-outline"></i>
+            <div>Quản lý tin tức</div>
+        </a>
+    </li>
+    <li class='menu-item@(currentPage == "/Apps/Kanban" ? " active" : "")'>
+        <a href="https://demos.themeselection.com/materio-aspnet-core-mvc-admin-template/html/vertical-menu-template/app-kanban.html" target="_blank" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-google-analytics"></i>
+            <div>Thống kê</div>
+        </a>
+    </li>
+  </ul>
+
+</aside>
